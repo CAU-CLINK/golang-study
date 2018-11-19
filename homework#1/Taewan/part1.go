@@ -14,4 +14,17 @@ func main() {
 		Hash          []byte
 	}
 
+
+  //해시 계산
+  //블록을 구성하는 필드들을 하나로 이은 뒤 이어진 문자열에 대해 SHA-256 해시를 계산
+  //SetHash 메서드 작성
+
+  func (b *Block) SetHash() {
+          timestamp := []byte(strconv.FormatInt(b.Timestamp, 10))
+          headers := bytes.Join([][]byte{b.PrevBlockHash, b.Data, timestamp}, []byte{})
+          hash := sha256.Sum256(headers)
+          b.Hash = hash[:]
+  }
+
+
 }
