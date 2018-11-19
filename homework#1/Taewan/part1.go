@@ -62,4 +62,11 @@ func NewGenesisBlock() *Block {
         return NewBlock("Genesis Block", []byte{})
 }
 
+
+// 제너시스 블록을 가지고 블록체인 생성하는 함수 구현
+
+func NewBlockchain() *Blockchain {
+        return &Blockchain{[]*Block{NewGenesisBlock()}}
+}
+
 }
