@@ -26,6 +26,9 @@ func main() {
           b.Hash = hash[:]
   }
 
+
+  //Go의 컨벤션을 따라, 블록을 생성하는 함수 작성
+
     func NewBlock(data string, prevBlockHash []byte) *Block {
       block := &Block{time.Now().Unix(), []byte(data), prevBlockHash, []byte{}}
       block.SetHash()
