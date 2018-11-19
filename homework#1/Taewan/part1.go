@@ -36,4 +36,16 @@ func main() {
     }
 
 
+// 블록체인 (Blockchain) 구현
+
+//배열과 맵 활영
+//배열은 정렬된 해시를 유지하고 맵은 해시-블록쌍을 유지
+//지금은 해시 검색 기능이 필요x - 프로토 타입 구현에서는 배열만 사용
+
+type Blockchain struct {
+        blocks []*Block
+  }
+
+
+   
 }
