@@ -47,5 +47,12 @@ type Blockchain struct {
   }
 
 
-   
+// 블록 추가 기능 만들기
+
+func (bc *Blockchain) AddBlock(data string) {
+        prevBlock := bc.blocks[len(bc.blocks)-1]
+        newBlock :=NewBlock(data, prevBlock.Hash)
+        bc.blocks = append(bc.blocks, newBlock)
+}
+
 }
