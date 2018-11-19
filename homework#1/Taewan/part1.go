@@ -55,4 +55,11 @@ func (bc *Blockchain) AddBlock(data string) {
         bc.blocks = append(bc.blocks, newBlock)
 }
 
+
+// 제네시스 블록 만들기
+
+func NewGenesisBlock() *Block {
+        return NewBlock("Genesis Block", []byte{})
+}
+
 }
