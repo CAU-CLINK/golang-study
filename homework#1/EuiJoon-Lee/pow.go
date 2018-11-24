@@ -82,7 +82,7 @@ func (pow *ProofOfWork) Run() (int, []byte) {
 //pow 검증 로직
 func (pow *ProofOfWork) Validate() bool {
 	var hashInt big.Int
-	var isValid bool
+	var isValid bool // isValid bool타입으로 선언
 
 	data := pow.prepareData(pow.block.Nonce)
 	hash := sha256.Sum256(data)
@@ -92,7 +92,7 @@ func (pow *ProofOfWork) Validate() bool {
 		isValid = true
 	} else {
 		isValid = false
-	} // 제 나름대로 수정해 봤습니다. 그대로 클론코딩 하니까 에러가 나서요
+	} // 이 부분은 제 나름대로 수정해 봤습니다. 그대로 클론코딩 하니까 에러가 나서요
 
 	return isValid
 }
