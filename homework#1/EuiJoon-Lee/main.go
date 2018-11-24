@@ -23,3 +23,7 @@ func main() {
 		fmt.Println()
 	}
 }
+
+// git 관련 질문
+// add를 커밋 할때마다 해야 하는가?
+// branch 생성에 대해서 다시 설명해주셨으면..
