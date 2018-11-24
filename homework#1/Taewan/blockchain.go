@@ -1,6 +1,6 @@
-package main
-
 // 블록체인 (Blockchain) 구현
+
+package main
 
 //배열과 맵 활영
 //배열은 정렬된 해시를 유지하고 맵은 해시-블록쌍을 유지
@@ -18,30 +18,8 @@ func (bc *Blockchain) AddBlock(data string) {
 	bc.blocks = append(bc.blocks, newBlock)
 }
 
-// 제네시스 블록 만들기
-
-func NewGenesisBlock() *Block {
-	return NewBlock("Genesis Block", []byte{})
-}
-
 // 제너시스 블록을 가지고 블록체인 생성하는 함수 구현
 
 func NewBlockchain() *Blockchain {
 	return &Blockchain{[]*Block{NewGenesisBlock()}}
-}
-
-//블록체인 동작하는 확인
-
-func main() {
-	bc := NewBlockchain()
-
-	bc.AddBlock("Send 1 BTC to Ivan")
-	bc.AddBlock("send 2 more BTC ro Ivan")
-
-	for _, block := range bc.blocks {
-		fmt.Printf("Prev. hash: %x\n", block.PrevBlockHash)
-		fmt.Printf("Data: %s\n", block.Data)
-		fmt.Printf("Hash: %x\n", block.Hash)
-		fmt.Printfln()
-	}
 }
