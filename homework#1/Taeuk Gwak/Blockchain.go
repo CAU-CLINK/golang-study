@@ -3,11 +3,11 @@ type Block struct {
 	Data          []byte
 	PrevBlockhash []byte
 	Blockhash     []byte
-  Version       []byte
-  Merklehash    []byte
-  Nonce         int
+	Version       []byte
+	Merklehash    []byte
+	Nonce         int
 }
- func (b *Block) SetHash() {
+func (b *Block) SetHash() {
 	timestamp := []byte(strconv.FormatInt(b.Timestamp, 10))
 	headers := bytes.Join([][]byte{b.PrevBlockhash, b.Data, timestamp}, []byte{})
 	blockhash := sha256.Sum256(headers)
@@ -97,15 +97,15 @@ type Block struct {
  	bc.AddBlock("Send 1 BTC to Ivan")
 	bc.AddBlock("Send 2 more BTC to Ivan")
  	for _, block := range bc.blocks {
-    fmt.Printf("Blockhash: %x\n", block.Blockhash)
-    fmt.Printf("Version: %s\n", block.Version)
+    		fmt.Printf("Blockhash: %x\n", block.Blockhash)
+		fmt.Printf("Version: %s\n", block.Version)
 		fmt.Printf("Previous Blockhash: %x\n", block.PrevBlockhash)
-    fmt.Printf("Merklehash: %x\n", block.Merklehash)
+    		fmt.Printf("Merklehash: %x\n", block.Merklehash)
 		fmt.Printf("Data: %s\n", block.Data)
 		fmt.Println()
     
-    pow := NewProofOfWork(block)
+    		pow := NewProofOfWork(block)
 		fmt.Printf("PoW: %s\n", strconv.FormatBool(pow.Validate()))
 		fmt.Println()
 	}
-}
+ }
